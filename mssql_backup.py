@@ -136,6 +136,6 @@ if __name__ == "__main__":
         backuplog(sys.argv[2])
         backup(sys.argv[2])
     elif sys.argv[1].lower() == 'delete':
-        __delete(sys.argv[1])
+        __delete(sys.argv[2])
     else:
         __help()
