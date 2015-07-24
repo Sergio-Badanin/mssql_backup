@@ -115,8 +115,10 @@ def __delete(adatabase):
     :return:
     """
     awhere = config('main')['awhere']
-    os.remove("%(path)s/%(db)s.sql" % {'path': awhere, 'db': adatabase})
-    os.remove("%(path)s/%(db)s_log.sql" % {'path': awhere, 'db': adatabase})
+    if os.path.isfile("%(path)s/%(db)s.sql" % {'path': awhere, 'db': adatabase}):
+        os.remove("%(path)s/%(db)s.sql" % {'path': awhere, 'db': adatabase})
+    if os.path.isfile("%(path)s/%(db)s_log.sql" % {'path': awhere, 'db': adatabase}):
+        os.remove("%(path)s/%(db)s_log.sql" % {'path': awhere, 'db': adatabase})
 
 
 if __name__ == "__main__":
